@@ -1,0 +1,21 @@
+html[data-surface="page"]{color-scheme:light;background:transparent;font:13px/1.4 'Manga Noto',Arial,sans-serif}
+html[data-surface="page"] body{margin:0;background:transparent;color:#171717;overflow:hidden;width:64px}
+html[data-surface="page"] body.widget-expanded{width:260px}
+html[data-surface="page"] main{max-width:none;margin:0;padding:0}
+html[data-surface="page"] main>*:not(#pageSection){display:none!important}
+html[data-surface="page"] #pageSection{padding:0;border:0}
+html[data-surface="page"] #pageSection>h2,html[data-surface="page"] #pageSection>.hint{display:none}
+html[data-surface="page"] #pageTranslateButton{display:block;margin:0 0 0 auto;padding:0;width:64px;height:64px;min-height:64px;border:0;border-radius:50%;background:#18191b url('icons/icon-128.png') center/64px 64px no-repeat;font-size:0;box-shadow:none;cursor:pointer}
+html[data-surface="page"] #pageTranslateButton:disabled{opacity:.65;cursor:progress}
+html[data-surface="page"] #pageTranslateButton:focus-visible{outline:3px solid #60a5fa;outline-offset:-3px}
+html[data-surface="page"] #pageSection>.actions,html[data-surface="page"] #pageStatus,html[data-surface="page"] #widgetStatus,html[data-surface="page"] #pageProgress,html[data-surface="page"] #autoPermissionButton{display:none}
+html[data-surface="page"] .widget-expanded #pageSection>.actions{display:flex;justify-content:flex-end;gap:6px;margin:8px 0 0;padding:8px;background:#fff;border:1px solid #64748b;border-radius:6px 6px 0 0}
+html[data-surface="page"] .widget-expanded #widgetStatus{display:block;max-height:100px;overflow:auto;margin:0;padding:8px;background:#fff;border:1px solid #64748b;border-top:0;border-radius:0 0 6px 6px;font-size:12px;overflow-wrap:anywhere}
+html[data-surface="page"] .widget-expanded #pageProgress:not([hidden]){display:block;width:100%;height:8px;margin:0}
+html[data-surface="page"] .widget-expanded #autoPermissionButton:not([hidden]){display:block;width:100%;margin-top:6px}
+html[data-surface="page"] button:not(#pageTranslateButton){width:auto;margin:0;padding:5px 8px;font-size:12px;min-height:32px;background:#f8fafc;color:#171717;border:1px solid #64748b;border-radius:4px}
+
+html[data-surface="page"] #pageStatus{display:none!important}
+html[data-surface="page"] #pageSection>.actions{flex-wrap:nowrap}
+html[data-surface="page"] #pageSection>.actions>*{flex:1 1 0}
+html[data-surface="page"] #pageSection>.actions>button:disabled{display:none}

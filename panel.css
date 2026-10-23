@@ -1,0 +1,56 @@
+@font-face { font-family: 'Manga Noto'; src: url('assets/fonts/NotoSans.ttf') format('truetype'); font-weight: 100 900; font-display: swap; }
+:root {
+  color-scheme: light dark;
+  font-family: 'Manga Noto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: Canvas; color: CanvasText; }
+main { max-width: 540px; margin: 0 auto; padding: 18px 16px 28px; }
+header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.appLogo { flex: none; }
+h1 { font-size: 21px; margin: 0 0 4px; }
+header p { margin: 0; color: GrayText; }
+section { border-top: 1px solid color-mix(in srgb, CanvasText 18%, transparent); padding: 16px 0; }
+h2 { font-size: 16px; margin: 0 0 10px; }
+p { margin: 9px 0; line-height: 1.45; }
+.hint { color: GrayText; }
+.warning { color: #a44800; background: color-mix(in srgb, #f5a524 18%, Canvas); padding: 9px; border-radius: 6px; }
+label:not(.fileButton) { display: block; margin: 12px 0 6px; font-weight: 600; }
+textarea { width: 100%; resize: vertical; min-height: 92px; border: 1px solid color-mix(in srgb, CanvasText 28%, transparent); border-radius: 6px; background: Canvas; color: CanvasText; padding: 9px; font: inherit; line-height: 1.4; }
+textarea:disabled { opacity: .6; }
+button, .fileButton { border: 1px solid color-mix(in srgb, CanvasText 28%, transparent); border-radius: 6px; background: Canvas; color: CanvasText; padding: 9px 11px; font: inherit; min-height: 38px; text-align: center; }
+button:not(:disabled), .fileButton { cursor: pointer; }
+button:disabled { opacity: .55; }
+.primary { background: #245fce; border-color: #245fce; color: white; }
+.quiet { margin-top: 10px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.actions > * { flex: 1 1 130px; }
+#selectButton { width: 100%; }
+#preview { display: block; max-width: 100%; max-height: 210px; margin: 12px auto 0; border: 1px solid color-mix(in srgb, CanvasText 20%, transparent); }
+#preview[hidden], [hidden] { display: none !important; }
+#status { font-weight: 600; }
+
+
+#automaticSection { margin-top: 22px; }
+#autoPermissionButton { margin-top: 8px; }
+#autoRegions { display: grid; gap: 8px; margin: 10px 0; max-height: 480px; overflow-y: auto; }
+.autoRow { display: grid; grid-template-columns: 20px minmax(0,1fr) auto; gap: 5px; align-items: center; padding: 8px; border: 1px solid #cbd5e1; border-radius: 5px; }
+.autoRow input[type=checkbox] { width: 16px; height: 16px; margin: 0; }
+.autoRow .autoRegionButton { text-align: left; font-size: 12px; padding: 5px; }
+.autoRow select { grid-column: 2; min-width: 0; width: 100%; padding: 4px; font: inherit; font-size: 12px; }
+.autoRow > button:last-of-type { grid-column: 3; grid-row: 1 / 3; padding: 5px; }
+.autoRow small { grid-column: 1 / -1; overflow-wrap: anywhere; }
+.autoUncertain { border-color: #b7791f; border-style: dashed; }
+
+#pageTranslateButton, #pageProgress, #autoImageSelect { width: 100%; }
+#pageProgress { margin-top: 12px; }
+#pageStatus { font-weight: 600; }
+#autoImageSelect { padding: 8px; font: inherit; margin: 8px 0; }
+input:not([type=checkbox]),select{max-width:100%;padding:8px;font:inherit;background:Canvas;color:CanvasText;border:1px solid GrayText;border-radius:5px}
+.settingsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.settingsGrid label{min-width:0}.settingsGrid select,.settingsGrid input,#seriesName{display:block;width:100%;margin-top:6px}
+summary{cursor:pointer;padding:8px 0;font-weight:600}details{margin-top:10px}#readingHistory{padding-left:20px;max-height:200px;overflow:auto;overflow-wrap:anywhere}
+.fileButton{display:inline-block;margin-top:10px}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #4788ef;outline-offset:2px}
+.autoColorToggle{font-weight:400!important}.autoColorToggle input{width:auto;vertical-align:middle}

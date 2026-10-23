@@ -1,0 +1,17 @@
+{
+  "license": "SIL-OFL-1.1",
+  "files": [
+    {
+      "file": "NotoSans.ttf",
+      "bytes": 2049096,
+      "sha256": "bfb7bb691513f12e734dc346c03a03f784912432d7e3fa8e56efcf906fe86b3d",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf"
+    },
+    {
+      "file": "OFL.txt",
+      "bytes": 4396,
+      "sha256": "cee9892f9f0cc8fe882c9e9537ee6a89621d86ee7ceaf70b02e2b2b1c25c061a",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/OFL.txt"
+    }
+  ]
+}

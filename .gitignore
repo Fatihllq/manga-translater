@@ -1,0 +1,7 @@
+*.zip
+.env
+.env.*
+!.env.example
+node_modules/
+backups/
+tests/output/

@@ -1,0 +1,6 @@
+Comic text and bubble detector, ogkalu.
+Apache-2.0 upstream: https://huggingface.co/ogkalu/comic-text-and-bubble-detector
+Pinned revision: 16e8a622f91fabc6b5b65c96d32d1183f8843546
+Bundled weight: detector_int8.onnx
+SHA-256: b5022ad46416b6fe4f88b0cc082cfd2ff5b1cfc624088c2f19879485493f5913
+Local wrapper and image refinement are independently implemented.

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <script src="page-surface.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manga Çevirmeni</title>
+  <link rel="stylesheet" href="panel.css">
+  <link rel="stylesheet" href="page-surface.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+</head>
+<body>
+  <main>
+    <header>
+      <img class="appLogo" src="icons/icon-128.png" width="64" height="64" alt="">
+      <div>
+        <h1>Manga Çevirmeni</h1>
+        <p id="languagePairLabel">İngilizce → Türkçe · ücretsiz ve yerel</p>
+      </div>
+    </header>
+
+    <section aria-labelledby="settingsHeading">
+      <h2 id="settingsHeading">Dil ve görünüm</h2>
+      <div class="settingsGrid">
+        <label>Kaynak dil<select id="sourceLanguage"></select></label>
+        <label>Hedef dil<select id="targetLanguage"><option value="tr">Türkçe</option></select></label>
+      </div>
+      <label for="seriesName">Seri adı · sözlük ve onaylı ifadeler</label><input id="seriesName" maxlength="100" value="Genel">
+      <div class="settingsGrid">
+        <label>Yazı tipi<select id="fontFamily"><option value="sans-serif">Sade</option><option value="serif">Kitap</option><option value="comic">Çizgi roman</option></select></label>
+        <label>Yazı ölçeği<input id="fontScale" type="number" min="0.5" max="2" step="0.1" value="1"></label>
+        <label>Özel yazı rengi<input id="fontColor" type="color" value="#171717" disabled></label>
+        <label>Hizalama<select id="textAlign"><option value="auto">Kaynağa göre</option><option value="center">Ortala</option><option value="left">Sola</option><option value="right">Sağa</option></select></label>
+      </div>
+      <label class="autoColorToggle"><input id="fontAutoColor" type="checkbox" checked> Zeminle uyumlu otomatik yazı rengi</label>
+      <p id="settingsStatus" role="status" aria-live="polite">Yerel ayarlar hazırlanıyor…</p>
+      <details><summary>Seri sözlüğü ve onaylı ifadeler</summary>
+        <label for="termLines">İsim / özel terim · her satır: kaynak =&gt; hedef</label><textarea id="termLines" rows="3" placeholder="Jotaro => Jotaro"></textarea>
+        <label for="phraseLines">Onayladığın tam ifadeler · kaynak =&gt; hedef</label><textarea id="phraseLines" rows="3"></textarea>
+        <button id="saveTermsButton" type="button">Sözlüğü kaydet</button>
+        <p class="hint">Yalnız bu seri ve dil çiftinde uygulanır. Otomatik çeviri eğitim kaydı oluşturmaz.</p>
+      </details>
+    </section>
+
+    <section id="pageSection" aria-labelledby="pageHeading">
+      <h2 id="pageHeading">Bütün bölümü çevir</h2>
+      <p class="hint">Açık bölüm arka planda hazırlanır ve çevrilir. Okuma konumun değişmez; ek sekme açılmaz.</p>
+      <button id="pageTranslateButton" class="primary" type="button">Sayfayı çevir</button>
+      <div class="actions">
+        <button id="pageStopButton" type="button" disabled>Durdur</button>
+        <button id="pageOriginalButton" type="button" disabled>Özgünü göster</button>
+      </div>
+      <button id="autoPermissionButton" type="button" hidden>Görseli okumaya izin ver</button>
+      <progress id="pageProgress" value="0" max="1" hidden aria-label="Çeviri ilerlemesi"></progress>
+      <p id="pageStatus" role="status" aria-live="polite">Manga bölümünü açıp “Sayfayı çevir” düğmesine bas.</p>
+    </section>
+
+    <section aria-labelledby="outputHeading">
+      <h2 id="outputHeading">Çıktı ve yerel dosyalar</h2>
+      <div class="actions"><button id="pagePngButton" type="button">Seçili sayfa PNG</button><button id="chapterZipButton" type="button">Bölüm ZIP</button></div>
+      <p id="outputStatus" role="status" aria-live="polite">Bölüm ZIP'i için sayfa listesi ve çeviriler tamamlanmış olmalı.</p>
+      <div class="actions"><button id="fillRegionButton" type="button">Seçili alanı temizle</button><button id="undoEditButton" type="button">Son düzenlemeyi geri al</button></div>
+      <label class="fileButton" for="localFiles">Görsel veya ZIP/CBZ aç</label><input id="localFiles" type="file" accept="image/png,image/jpeg,image/webp,.zip,.cbz" multiple hidden>
+      <p class="hint">Sayfadaki çeviriye çift tıklayarak düzenleyebilirsin. Enter: kaydet, Shift+Enter: yeni satır, Esc: iptal.</p>
+      <details><summary>Okuma geçmişi ve yedek</summary>
+        <ul id="readingHistory"></ul>
+        <div class="actions"><button id="historyClearButton" type="button">Otomatik geçmişi temizle</button><button id="readingExportButton" type="button">Okuma yedeği indir</button></div>
+        <label class="fileButton" for="readingImportFile">Okuma yedeği yükle</label><input id="readingImportFile" type="file" accept="application/json,.json" hidden>
+      </details>
+    </section>
+
+    <section hidden aria-label="Balon seçimi">
+      <button id="selectButton" class="primary" type="button">Balon seç</button>
+      <p class="hint">Manga sayfasında yalnızca konuşma balonunun yazı alanını sürükleyerek seç.</p>
+      <p id="status" role="status" aria-live="polite">Balon seçmeye hazır.</p>
+      <img id="preview" alt="Seçilen konuşma balonu" hidden>
+    </section>
+
+    <section hidden aria-labelledby="englishHeading">
+      <h2 id="englishHeading">İngilizce okuma</h2>
+      <p id="ocrInfo" class="hint">Seçilen balonun metni burada görünecek.</p>
+      <p id="uncertain" class="warning" hidden></p>
+      <label for="sourceText">Okunan metin · gerekiyorsa düzelt</label>
+      <p class="hint">Eğitim için satır sonlarını özgün balondaki satırlarla aynı tut.</p>
+      <textarea id="sourceText" rows="5" spellcheck="false" disabled></textarea>
+      <div class="actions">
+        <button id="confirmButton" type="button" disabled>Doğru metni onayla</button>
+        <button id="skipButton" type="button" disabled>Bu alanı atla</button>
+      </div>
+    </section>
+
+    <section hidden aria-labelledby="turkishHeading">
+      <h2 id="turkishHeading">Türkçe çeviri</h2>
+      <p id="translationInfo" class="hint">Chrome'un yerel çeviri modeli kontrol ediliyor.</p>
+      <button id="translateButton" type="button" disabled>Çevir</button>
+      <label for="targetText">Çeviri metni · gerekiyorsa düzelt</label>
+      <textarea id="targetText" rows="5" disabled></textarea>
+      <div class="actions">
+        <button id="showButton" class="primary" type="button" disabled>Sayfada göster</button>
+        <button id="originalButton" type="button" disabled>Özgünü göster</button>
+      </div>
+      <button id="saveTranslationButton" class="quiet" type="button" disabled>Onaylı düzeltmeyi kaydet</button>
+    </section>
+
+    <section hidden aria-labelledby="dataHeading">
+      <h2 id="dataHeading">Düzeltmeler</h2>
+      <p id="sampleCount" class="hint">Kayıtlar sayılıyor…</p>
+      <div class="actions">
+        <button id="exportButton" type="button">Yedekle / dışa aktar</button>
+        <label class="fileButton" for="importFile">Yedek içe aktar</label>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </div>
+    </section>
+
+    <section hidden id="automaticSection" aria-labelledby="automaticHeading">
+      <h2 id="automaticHeading">Otomatik balon ve yazı seçimi</h2>
+      <p class="hint">İstersen tek görsel tara, kutuları değiştir veya metinleri düzelt. Çizimin üstündeki yazılar da temizlenip aynı konumda çevrilir.</p>
+      <p id="autoQuality" class="warning">Algılama bazen yazıları kaçırabilir veya yanlış alan seçebilir. Aşağıdaki araçlarla sonucu düzeltebilirsin.</p>
+      <button id="autoFindButton" class="primary" type="button">Balonları ve yazıları bul</button>
+      <p id="autoStatus" role="status" aria-live="polite">Taranacak manga görselini seçmeye hazır.</p>
+      <p id="autoSummary" class="hint"></p>
+      <select id="autoImageSelect" hidden aria-label="Düzenlenecek manga görseli"></select>
+      <div class="actions">
+        <button id="autoAddButton" type="button" disabled>Eksik alan ekle</button>
+        <button id="autoMergeButton" type="button" disabled>Seçilileri birleştir</button>
+        <button id="autoSplitButton" type="button" disabled>Seçiliyi ikiye böl</button>
+      </div>
+      <p class="hint">Numaraya tıkla: metni yukarıdaki bölümde düzelt. Kutuyu sürükle; numaraya tıkladıktan sonra köşelerinden boyutunu değiştir.</p>
+      <div id="autoRegions" aria-label="Algılanan yazı alanları"></div>
+      <button id="autoTranslateButton" class="primary" type="button" disabled>Seçilenleri çevir ve göster</button>
+      <div class="actions">
+        <button id="autoStopButton" type="button" disabled>Durdur</button>
+        <button id="autoOriginalButton" type="button" disabled>Tümünün özgününü göster</button>
+        <button id="autoBoxesButton" type="button" disabled>Kutuları gizle</button>
+      </div>
+      <p class="hint">Otomatik okuma ve çeviri eğitim kaydı oluşturmaz. Yalnızca kontrol edip “Doğru metni onayla” ile kaydettiğin metinler yedeklere eklenir.</p>
+    </section>
+
+  </main>
+  <script src="vendor/tesseract.min.js"></script>
+  <script type="module" src="panel.js"></script>
+</body>
+</html>

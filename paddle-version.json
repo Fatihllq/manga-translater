@@ -1,0 +1,23 @@
+{
+  "version": "ppocr-v5-mobile-en-rapidocr-3.10.0",
+  "reference": "RapidOCR 3.10.0",
+  "models": [
+    {
+      "file": "ch_PP-OCRv5_det_mobile.onnx",
+      "bytes": 4819576,
+      "sha256": "4d97c44a20d30a81aad087d6a396b08f786c4635742afc391f6621f5c6ae78ae",
+      "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/det/ch_PP-OCRv5_det_mobile.onnx",
+      "license": "Apache-2.0"
+    },
+    {
+      "file": "en_PP-OCRv5_rec_mobile.onnx",
+      "bytes": 7872351,
+      "sha256": "c3461add59bb4323ecba96a492ab75e06dda42467c9e3d0c18db5d1d21924be8",
+      "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/en_PP-OCRv5_rec_mobile.onnx",
+      "license": "Apache-2.0"
+    }
+  ],
+  "charactersSource": "rec model metadata, frozen experiment manifest",
+  "charactersCount": 438,
+  "charactersSha256": "54a21c18c2be1f6e5639c16782feae4347b832541f94189b5e12460c0838152a"
+}

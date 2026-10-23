@@ -1,0 +1,1 @@
+globalThis.__mangaFeatures ??= Object.freeze({"version":"0.6.0","missingTranslationFallback":true,"textCleanup":false,"paddleLine":false,"paddleBlock":false,"paddleRows":false,"paddleFastBlock":false,"paddleOnly":true});

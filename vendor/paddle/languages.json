@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "reference": "RapidOCR 3.10.0",
+  "languages": {
+    "en": {
+      "version": "ppocr-v5-mobile-en-rapidocr-3.10.0",
+      "writingMode": "horizontal-tb",
+      "model": {
+        "file": "en_PP-OCRv5_rec_mobile.onnx",
+        "bytes": 7872351,
+        "sha256": "c3461add59bb4323ecba96a492ab75e06dda42467c9e3d0c18db5d1d21924be8",
+        "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/en_PP-OCRv5_rec_mobile.onnx",
+        "license": "Apache-2.0"
+      },
+      "characters": {
+        "file": "characters.json",
+        "bytes": 2303,
+        "sha256": "54a21c18c2be1f6e5639c16782feae4347b832541f94189b5e12460c0838152a",
+        "count": 438
+      }
+    },
+    "ja": {
+      "version": "ppocr-v5-mobile-cjk-rapidocr-3.10.0",
+      "writingMode": "auto",
+      "model": {
+        "file": "ch_PP-OCRv5_rec_mobile.onnx",
+        "bytes": 16631306,
+        "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+        "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/ch_PP-OCRv5_rec_mobile.onnx",
+        "license": "Apache-2.0"
+      },
+      "characters": {
+        "file": "characters-cjk.json",
+        "bytes": 110793,
+        "sha256": "697040d5c2a023b46bb0949280b526ea2e10e8f6c4671b57f7cecdde1e34bffe",
+        "count": 18385
+      }
+    },
+    "zh": {
+      "version": "ppocr-v5-mobile-cjk-rapidocr-3.10.0",
+      "writingMode": "auto",
+      "model": {
+        "file": "ch_PP-OCRv5_rec_mobile.onnx",
+        "bytes": 16631306,
+        "sha256": "5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5",
+        "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/ch_PP-OCRv5_rec_mobile.onnx",
+        "license": "Apache-2.0"
+      },
+      "characters": {
+        "file": "characters-cjk.json",
+        "bytes": 110793,
+        "sha256": "697040d5c2a023b46bb0949280b526ea2e10e8f6c4671b57f7cecdde1e34bffe",
+        "count": 18385
+      }
+    },
+    "ko": {
+      "version": "ppocr-v5-mobile-ko-rapidocr-3.10.0",
+      "writingMode": "horizontal-tb",
+      "model": {
+        "file": "korean_PP-OCRv5_rec_mobile.onnx",
+        "bytes": 13488748,
+        "sha256": "cd6e2ea50f6943ca7271eb8c56a877a5a90720b7047fe9c41a2e541a25773c9b",
+        "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/korean_PP-OCRv5_rec_mobile.onnx",
+        "license": "Apache-2.0"
+      },
+      "characters": {
+        "file": "characters-ko.json",
+        "bytes": 71356,
+        "sha256": "eff5b03c030036352d8741aae94a0a577d91bc5151e1f0f6857005169b4f07e5",
+        "count": 11947
+      }
+    }
+  }
+}

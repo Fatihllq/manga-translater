@@ -1,0 +1,51 @@
+PP-OCRv5 mobile local OCR models
+
+Upstream OCR model authors: Baidu / PaddlePaddle / PaddleOCR contributors.
+ONNX conversion and reference implementation: RapidAI / RapidOCR contributors.
+Copyright (c) 2021 RapidOCR Authors. All rights reserved.
+Reference package: RapidOCR 3.10.0. Apache License, Version 2.0.
+This extension is not endorsed by PaddleOCR, Baidu, or RapidAI.
+
+ch_PP-OCRv5_det_mobile.onnx
+SHA-256: 4d97c44a20d30a81aad087d6a396b08f786c4635742afc391f6621f5c6ae78ae
+en_PP-OCRv5_rec_mobile.onnx
+SHA-256: c3461add59bb4323ecba96a492ab75e06dda42467c9e3d0c18db5d1d21924be8
+
+English and detector weights are copied byte-for-byte from the frozen 11 October 2026 experiment.
+They are separate from the installed 2 October Tesseract model.
+The browser adapter is a new implementation based on the version-pinned
+RapidOCR/PaddleOCR algorithms. New CJK and Korean source languages are beta.
+Upstream source: https://github.com/RapidAI/RapidOCR
+PaddleOCR source/license: https://github.com/PaddlePaddle/PaddleOCR
+
+Pinned model registry: RapidOCR 3.10.0, default_models.yaml.
+Detector source:
+https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/det/ch_PP-OCRv5_det_mobile.onnx
+English recognizer source:
+https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/en_PP-OCRv5_rec_mobile.onnx
+Character dictionaries are extracted from each pinned recognizer's metadata.
+English identity is recorded in paddle-version.json; all language identities
+and character counts are recorded in vendor/paddle/languages.json.
+These URLs are provenance only; runtime
+models and executable code are loaded exclusively from the extension package.
+
+Browser adaptation changes: JavaScript pixel processing and geometry,
+worker and queue integration, CTC/source coordinate conversion. Custom polygon
+offset and raster rounding are approximate and have not passed full reference
+parity. Source-language and vertical/column reading-order handling are local
+adaptations and are not upstream reference accuracy claims.
+
+Additional multilingual recognizer weights, acquired 21 October 2026 from
+the same version-pinned official RapidOCR model registry:
+
+ch_PP-OCRv5_rec_mobile.onnx (Japanese and Chinese)
+SHA-256: 5825fc7ebf84ae7a412be049820b4d86d77620f204a041697b0494669b1742c5
+https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/ch_PP-OCRv5_rec_mobile.onnx
+
+korean_PP-OCRv5_rec_mobile.onnx
+SHA-256: cd6e2ea50f6943ca7271eb8c56a877a5a90720b7047fe9c41a2e541a25773c9b
+https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/korean_PP-OCRv5_rec_mobile.onnx
+
+These model weights and their extracted dictionaries retain the Apache-2.0
+license and the upstream notices included with this package. They are not
+trained on, extracted from, or copied from another browser extension.

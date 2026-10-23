@@ -1,0 +1,9 @@
+{
+  "file": "migan_pipeline_v2.onnx",
+  "sha256": "6f1f3530a1a2324b19752018ce756088b07973cda8d7d890034ace5c8a48c40b",
+  "bytes": 28079181,
+  "version": "migan-512-places2-pipeline-v2",
+  "upstream": "https://huggingface.co/andraniksargsyan/migan/resolve/1538c13/migan_pipeline_v2.onnx",
+  "license": "MIT",
+  "maskConvention": "uint8:255=known,0=remove"
+}
