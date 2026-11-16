@@ -1,3 +1,4 @@
+import {createModelWorker} from './model-worker.js';
 import {resourcePolicy} from './runtime-policy.js';
 let worker,pending,preparation,forceSingle=false,forceCpu=false;
 export function stopDetection(){
@@ -5,7 +6,7 @@ export function stopDetection(){
  if(pending){pending.reject(new DOMException('Tarama durduruldu.','AbortError'));pending=undefined;}
 }
 function getWorker(){
- if(worker)return worker;const created=worker=new Worker(chrome.runtime.getURL('detector-worker.js'),{type:'module'});
+ if(worker)return worker;const created=worker=createModelWorker(chrome.runtime.getURL('detector-worker.js'),{type:'module'});
  created.onerror=event=>{if(worker!==created)return;const active=pending;pending=undefined;worker?.terminate();worker=undefined;preparation=undefined;active?.reject(Error(event.message||'Balon algılama çalışmadı.'));};
  created.onmessage=({data})=>{
   if(worker!==created||data.id!==pending?.id)return;const active=pending;if(data.forceCpu)forceCpu=true;

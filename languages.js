@@ -15,6 +15,8 @@ export const SOURCE_LANGUAGES = Object.freeze({
     modelVersion:'ppocr-v5-mobile-ko-rapidocr-3.10.0',paddleVersion:'ppocr-v5-mobile-ko-rapidocr-3.10.0',beta:true}),
   zh: Object.freeze({name:'Çince',direction:'ltr',writingMode:'auto',ocrEngine:'paddle',
     modelVersion:'ppocr-v5-mobile-cjk-rapidocr-3.10.0',paddleVersion:'ppocr-v5-mobile-cjk-rapidocr-3.10.0',beta:true}),
+  fr: Object.freeze({name:'Fransızca',direction:'ltr',writingMode:'horizontal-tb',ocrEngine:'paddle',
+    modelVersion:'ppocr-v5-mobile-latin-rapidocr-3.10.0',paddleVersion:'ppocr-v5-mobile-latin-rapidocr-3.10.0',beta:true}),
 });
 
 // These are candidates, not a promise: the UI checks Translator.availability for the selected pair.

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Manga Translater",
   "description": "Translate manga pages into many languages directly in your browser. Edit the text and download translated pages as PNG or ZIP.",
-  "version": "0.6.4",
+  "version": "0.6.7",
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",
@@ -14,7 +14,8 @@
     "default_title": "Manga Translater"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "side_panel": {
     "default_path": "panel.html"
@@ -22,7 +23,8 @@
   "permissions": [
     "activeTab",
     "scripting",
-    "sidePanel"
+    "sidePanel",
+    "offscreen"
   ],
   "optional_host_permissions": [
     "https://*/*",

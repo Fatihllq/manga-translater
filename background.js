@@ -1,3 +1,4 @@
+import './model-background.js';
 function configureAction(){
  chrome.sidePanel.setPanelBehavior({openPanelOnActionClick:false}).catch(console.error);
 }

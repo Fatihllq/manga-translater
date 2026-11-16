@@ -2,7 +2,7 @@
 export function automaticEligibility(region,sourceLanguage=region.sourceLanguage??'en') {
  if(region.manual||region.sourceCorrected||region.automaticOverride||region.displayGeometry?.mode==='inside')return {eligible:true,reason:null};
  const text=String(region.sourceText??region.english??region.ocr?.text??'').trim();
- if(sourceLanguage!=='en'){
+ if(sourceLanguage!=='en'&&sourceLanguage!=='fr'){
   const scripts={ja:/[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Latin}]/u,
    ko:/[\p{Script=Hangul}\p{Script=Latin}]/u,zh:/[\p{Script=Han}\p{Script=Latin}]/u};
   return scripts[sourceLanguage]?.test(text)?{eligible:true,reason:null}:{eligible:false,reason:'source-script'};

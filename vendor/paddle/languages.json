@@ -19,6 +19,23 @@
         "count": 438
       }
     },
+    "fr": {
+      "version": "ppocr-v5-mobile-latin-rapidocr-3.10.0",
+      "writingMode": "horizontal-tb",
+      "model": {
+        "file": "latin_PP-OCRv5_rec_mobile.onnx",
+        "bytes": 7904513,
+        "sha256": "b20bd37c168a570f583afbc8cd7925603890efbcdc000a59e22c269d160b5f5a",
+        "source": "https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/latin_PP-OCRv5_rec_mobile.onnx",
+        "license": "Apache-2.0"
+      },
+      "characters": {
+        "file": "characters-latin.json",
+        "bytes": 2653,
+        "sha256": "6f012f717a1b241df0d443093e6bedbaa13c5f2d86a0e6c209db535e5f2880db",
+        "count": 504
+      }
+    },
     "ja": {
       "version": "ppocr-v5-mobile-cjk-rapidocr-3.10.0",
       "writingMode": "auto",

@@ -1,6 +1,6 @@
 # Manga Çevirmeni gizlilik açıklaması
 
-Güncelleme: 23 Ekim 2026 · Sürüm 0.6.3
+Güncelleme: 25 Ekim 2026 · Sürüm 0.6.6
 
 Manga Çevirmeni ücretsiz bir masaüstü Chrome eklentisidir. Hesap, API anahtarı, abonelik, reklam ve kullanım analitiği içermez. Eklentinin OCR veya çeviri sunucusu yoktur.
 
@@ -44,3 +44,8 @@ Chrome Translator hakkında: [Chrome'un resmî açıklaması](https://developer.
 
 
 0.6.0: MI-GAN zemin temizlemesi cihazda, paketli ONNX modeliyle çalışır. Görseller herhangi bir temizleme sunucusuna yüklenmez. Temizlenen piksel yamaları bellekte türetilir; okuma geçmişine gömülmez.
+
+
+## Yerel hesaplama (0.6.6)
+
+Sayfadaki logodan başlatılan algılama, OCR ve zemin temizliği, aynı eklentiye ait görünmez bir belgede çalışan yerel işçilere iletilebilir. Bu belge görünür sekme veya pencere açmaz; görsel ve metinleri harici bir hizmete göndermez. offscreen izni bu yerel belgeyi oluşturmak için kullanılır. Yerel Chrome çevirisi tıklanan arayüzde kalır. Her istemci yalnız kendi çalışanlarını durdurur; istemci kapandığında çalışanları sonlandırılır. Yeni kalıcı kullanıcı verisi veya farklı veritabanı şeması eklenmez.

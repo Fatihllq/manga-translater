@@ -22,3 +22,12 @@ GPU modeli geliştirme klasöründe korunur ve standart dağıtımda bulunmaz. K
 ## MI-GAN
 
 Picsart AI Research MI-GAN-512 Places2 ONNX Pipeline v2, MIT model ve ağırlık lisansı. `vendor/inpainting/LICENSE.txt` ve `LICENSE-WEIGHTS.txt` paketlidir. Kaynak: https://github.com/Picsart-AI-Research/MI-GAN ; ağırlık SHA-256: `6f1f3530a1a2324b19752018ce756088b07973cda8d7d890034ace5c8a48c40b`.
+
+## 0.6.7 French OCR
+
+PP-OCRv5 Latin recognizer and its embedded character dictionary, distributed by RapidAI/RapidOCR v3.10.0, Apache-2.0. Existing PaddleOCR and RapidOCR license files are retained in `vendor/paddle/`.
+
+- Upstream model record: https://raw.githubusercontent.com/RapidAI/RapidOCR/v3.10.0/python/rapidocr/default_models.yaml
+- Upstream model: https://www.modelscope.cn/models/RapidAI/RapidOCR/resolve/v3.10.0/onnx/PP-OCRv5/rec/latin_PP-OCRv5_rec_mobile.onnx
+- Downloaded byte-identical mirror: https://huggingface.co/ogkalu/ppocr-v5-onnx/resolve/main/latin_PP-OCRv5_rec_mobile_infer.onnx
+- Model SHA-256: `b20bd37c168a570f583afbc8cd7925603890efbcdc000a59e22c269d160b5f5a`. The 504-entry `characters-latin.json` is extracted from this model's embedded metadata.

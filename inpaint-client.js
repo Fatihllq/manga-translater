@@ -1,3 +1,4 @@
+import {createModelWorker} from './model-worker.js';
 import {dilate} from './pixel-masks.js';
 import {maskPixels} from './inplace-geometry.js';
 import {checkSignal,resourcePolicy} from './runtime-policy.js';
@@ -12,7 +13,7 @@ function infer(image,mask,width,height,signal){
    const id=crypto.randomUUID();let timer;
    const finish=(error,result)=>{clearTimeout(timer);signal?.removeEventListener('abort',abort);active=undefined;error?reject(error):resolve(result);};
    const abort=()=>{worker?.terminate();worker=undefined;finish(new DOMException('Temizleme durduruldu.','AbortError'));};
-   worker??=new Worker(new URL('./inpaint-worker.js',import.meta.url),{type:'module'});
+   worker??=createModelWorker(new URL('./inpaint-worker.js',import.meta.url),{type:'module'});
    worker.onmessage=({data})=>{if(data.id!==id)return;finish(data.error?Error(data.error):null,data.result);};
    worker.onerror=event=>{worker?.terminate();worker=undefined;finish(Error(event.message||'Yerel temizleme çalışmadı.'));};
    timer=setTimeout(()=>{worker?.terminate();worker=undefined;finish(Error('Yerel temizleme zaman sınırına ulaştı.'));},60000);
